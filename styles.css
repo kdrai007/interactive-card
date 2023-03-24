@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Very-dark-violet: hsl(278, 68%, 11%);
+  --Input-Error: hsl(0, 100%, 66%);
+
+  /* gradient */
+  --Border-Gradient-color: linear-gradient(
+    to right hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+}
+* {
+  font-family: "Space Grotesk", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1px;
+}
+body {
+  font-size: 18px;
+}
+.main-container {
+  display: flex;
+  /* letter-spacing: 1; */
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+label {
+  color: var(--Very-dark-violet);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+input[type="text"] {
+  border: 1px solid black;
+  padding: 5px;
+  width: 280px;
+}
+
+input[type="text"]:focus {
+  border-color: red; /* set the border color to blue when the input is active */
+  outline: none; /* remove the default outline */
+}
+
+.card-details > input {
+  width: 60px;
+}

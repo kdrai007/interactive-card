@@ -18,6 +18,7 @@
   padding: 0;
   margin: 0;
   letter-spacing: 1px;
+  gap: 10px;
 }
 body {
   font-size: 18px;
@@ -30,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 400px;
   /* align-items: center; */
 }
 label {
@@ -40,14 +42,36 @@ label {
 input[type="text"] {
   border: 1px solid black;
   padding: 5px;
-  width: 280px;
+  width: inherit;
+  padding: 5px;
+  outline: 1px solid;
+  outline-color: var(--Light-grayish-violet);
+}
+input::placeholder {
+  color: var(--Light-grayish-violet);
 }
 
 input[type="text"]:focus {
   border-color: red; /* set the border color to blue when the input is active */
   outline: none; /* remove the default outline */
 }
-
+.card-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
 .card-details > input {
   width: 60px;
+}
+.expiry-d > div > input {
+  max-width: 60px;
+}
+.grid_3 {
+  margin-right: 20px;
+}
+.grid_3 > input {
+  max-width: 100px;
 }

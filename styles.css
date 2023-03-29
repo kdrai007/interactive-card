@@ -12,75 +12,122 @@
     hsl(278, 94%, 30%)
   );
 }
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  /* Remove default appearance */
+  -webkit-appearance: none;
+  /* Disable pointer events on pseudo-elements */
+  pointer-events: none;
+  /* Hide pseudo-elements */
+  display: none;
+}
 * {
   font-family: "Space Grotesk", sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  letter-spacing: 1px;
-  /* gap: 10px; */
 }
 body {
   font-size: 18px;
+  min-height: 100vh;
 }
 .main-container {
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: space-around;
   align-items: center;
-  gap: 2.5rem;
+}
+.cards-container {
+  min-height: 100vh;
+  width: 40%;
+  background-image: url("./images/bg-main-desktop.png");
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
-  /* letter-spacing: 1; */
+  position: relative;
+}
+.cards {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.front-card {
+  position: relative;
+  transform: translateX(-100px);
+}
+.card_logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+#number {
+  position: absolute;
+  color: var(--White);
+  bottom: 5rem;
+  left: 2rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+.card-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 3rem;
+  display: flex;
+  color: var(--White);
+  justify-content: space-between;
+}
+.back-card {
+  position: relative;
+}
+#cvc {
+  position: absolute;
+  bottom: 7.2rem;
+  left: 22rem;
+  color: var(--Light-grayish-violet);
 }
 .input-container {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  /* margin-left: 300px; */
-  width: 370px;
-  /* align-items: center; */
-  /* gap: 10px; */
+  width: 100%;
 }
-.front {
-  background-image: url(images/bg-card-front.png);
+.input-container > form > div {
+  margin-bottom: 2rem;
 }
-.back {
-  background-image: url(images/bg-card-back.png);
-  background-repeat: no-repeat;
-  background-size: 400px;
-  background-position: center;
-  margin-top: 2rem;
-}
-.card {
+/* .card {
   margin: 0 auto;
   width: 400px;
   height: 210px;
   border-radius: 0.4rem;
   color: var(--White);
   box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.3);
-}
+} */
 label {
   color: var(--Very-dark-violet);
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 5px;
 }
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   border: 1px solid black;
   width: inherit;
   padding: 10px;
   border: 1px solid rgba(151, 151, 151, 0.37);
   border-radius: 5px;
-  margin-bottom: 1.5rem;
 }
+
 input::placeholder {
   color: var(--Light-grayish-violet);
-  /* font-weight: 500; */
   font-size: 15px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
   border-color: var(
     --Very-dark-violet
   ); /* set the border color to blue when the input is active */
@@ -98,7 +145,7 @@ input[type="text"]:focus {
   width: 60px;
 }
 .expiry-d > div > input {
-  max-width: 75px;
+  max-width: 65px;
 }
 .grid_3 {
   /* margin-right: 20px; */
@@ -114,16 +161,13 @@ input[type="text"]:focus {
 .confirm-btn,
 .thanks-btn {
   width: 100%;
-  height: 44px;
-  margin-top: 1.5rem;
-  border: none;
-  border-radius: 0.4rem;
-  background-color: var(--Very-dark-violet);
+  grid-column: 2 span;
+  font-size: 18px;
+  height: 50px;
   color: var(--White);
-  font-size: 0.95rem;
-  font-family: "Space Grotesk", serif;
-  font-weight: 500px;
-  letter-spacing: 0.01rem;
+  border-radius: 6px;
+  background: var(--Very-dark-violet);
+  cursor: pointer;
   transition: all 0.6s;
 }
 .confirm-btn:hover,
@@ -156,6 +200,7 @@ input[type="text"]:focus {
   margin-top: 115px;
   margin-left: 309px;
 }
+
 .thanks-container {
   width: 370px;
   text-align: center;
@@ -168,6 +213,17 @@ input[type="text"]:focus {
   color: var(--Light-grayish-violet);
   margin: 0.8rem 0;
 }
+.error {
+  border: 2px solid var(--Input-Error) !important;
+}
+.error_message {
+  gap: 0;
+}
+.error_message::after {
+  content: "Invalid input";
+  color: var(--Input-Error);
+  margin-top: 0.2rem;
+}
 .hide {
-  display: none;
+  display: none !important;
 }

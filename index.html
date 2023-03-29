@@ -15,51 +15,72 @@
 
 <body>
   <!-- <img src="./design/desktop-design.jpg" alt=""> -->
-  <main class="main-container">
+  <main>
     <!-- <img src="./images/bg-main-desktop.png" class="d-img" alt=""> -->
-    <div class="cards-container">
-      <div class="front card">
-        <img src="./images/card-logo.svg" alt="circles logo">
-        <p class="num-card">0000 0000 0000 0000</p>
-        <span class="name-card">JANE APPLESEED</span>
-        <div class="front-card-date">
-          <span class="MM-date">00</span>
-          <span>/</span>
-          <span class="YY-date">00</span>
-        </div>
-      </div>
-
-      <div class="back card">
-        <p class="cvc-card">000</p>
-      </div>
-    </div>
-
-    <div class="input-container">
-      <div class="grid_1 flex-col">
-        <label for="cardholder">cardholder name</label>
-        <input required type="text" name="cardholder" id="cardholder" placeholder="eg Jane Appleseed">
-        <label for="cardnumber">cardholder number</label>
-        <input required type="text" name="cardnumber" id="cardnumber" placeholder="e.g. 1234 5678 9123 0000">
-      </div>
-      <div class="card-details">
-        <div class="expiry-d flex-col">
-          <label for="expiry-date">Exp. Date (MM/YY)</label>
-          <div>
-            <input type="text" name="expiry-date" id="MM" placeholder="MM">
-            <input type="text" name="expiry-date" id="YY" placeholder="YY">
+    <div class="main-container">
+      <div class="cards-container">
+        <div class="cards">
+          <div class="front-card">
+            <img src="./images/card-logo.svg" alt="card-logo" class="card_logo" />
+            <div class="card_container">
+              <img class="card-img" src="./images/bg-card-front.png" alt="front-card" />
+              <h1 id="number">0000 0000 0000 0000</h1>
+              <div class="card-info">
+                <span id="name">Jane Appleseed</span>
+                <span id="date">
+                  <span id="month">00</span>
+                  /
+                  <span id="year">00</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="back-card">
+            <img class="card-img" src="./images/bg-card-back.png" alt="back-card" />
+            <span id="cvc">000</span>
           </div>
         </div>
-        <div class="grid_3 flex-col"><label for="cvc">cvc</label>
-          <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
+      </div>
+      <div class="input-container">
+        <form class="input-form">
+          <div class="flex-col">
+            <label for="cardholder">cardholder name</label>
+            <input required type="text" name="cardholder" id="cardholder" placeholder="eg Jane Appleseed">
+          </div>
+          <div class="flex-col">
+            <label for="cardnumber">cardholder number</label>
+            <input required class="no-spinners" type="number" name="cardnumber"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              minlength="19" maxlength="16" id="cardnumber" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
+          </div>
+          <div class="card-details">
+            <div class="expiry-d flex-col">
+              <label for="expiry-date">Exp. Date (MM/YY)</label>
+              <div>
+                <input required class="no-spinners" type="number" name="expiry-date" maxlength="2" minlength="2"
+                  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  id="MM" placeholder="MM">
+                <input required class="no-spinners" type="number" name="expiry-date" maxlength="2" minlength="2"
+                  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  id="YY" placeholder="YY">
+              </div>
+            </div>
+            <div class="grid_3 flex-col"><label for="cvc">cvc</label>
+              <input required class="no-spinners" type="number" name="cvc" maxlength="3" minlength="3"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                id="incvc" placeholder="e.g. 123">
+            </div>
+          </div>
+          <button type="submit" class="confirm-btn">confirm</button>
+        </form>
+        <div class="thanks-container hide">
+          <img src="./images/icon-complete.svg" alt="thanks-logo">
+          <h1>Thanks You!</h1>
+          <p>We've added your card details</p>
+          <button class="thanks-btn confirm-btn">Continue</button>
         </div>
       </div>
-      <button class="confirm-btn">confirm</button>
-    </div>
-    <div class="thanks-container hide">
-      <img src="./images/icon-complete.svg" alt="thanks-logo">
-      <h1>Thanks You!</h1>
-      <p>We've added your card details</p>
-      <button class="thanks-btn confirm-btn">Continue</button>
+
     </div>
   </main>
 

@@ -227,3 +227,58 @@ input[type="number"]:focus {
 .hide {
   display: none !important;
 }
+@media screen and (max-width: 1023px) {
+  .front-cardcard .card_container img,
+  .front-card img,
+  .back-card img,
+  .back-card {
+    width: 300px;
+  }
+  .front-card img {
+    width: 50px;
+  }
+  #number {
+    font-size: 1.1rem;
+  }
+  #cvc {
+    top: 41%;
+    left: 77%;
+  }
+  #name {
+    font-size: 1rem;
+  }
+  .date {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .front-card .card_container img,
+  .front-card,
+  .back-card img,
+  .back-card {
+    width: 280px;
+  }
+  .cards-container {
+    width: 100%;
+    min-height: 30vh;
+    background-image: url("./images/bg-main-mobile.png");
+  }
+  .cards {
+    flex-direction: column-reverse;
+    left: 61%;
+    top: 60%;
+    gap: 0;
+  }
+  .back-card {
+    transform: translateY(70px);
+  }
+  .front-card {
+    z-index: 100;
+  }
+  .input-container {
+    margin-top: 6rem;
+  }
+}
